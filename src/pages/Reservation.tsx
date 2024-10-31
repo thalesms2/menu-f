@@ -83,9 +83,6 @@ export default function ReservationPage() {
           type="time" 
           {...register("time", { required: true })}
         />
-        {
-          // TODO mudar para select o horário e a quantidade de pessoas
-        }
         {errors.time?.message && <p className={errorStyle}>{errors.time?.message}</p>}
         <input
           type="submit"

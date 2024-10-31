@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { IMenu, IRes } from '../types/menu';
+import type { IMenu, IItemsFromMenu } from '../types/menu';
 import type { IReservation } from '../types/reservation';
 
 export const api = createApi({
@@ -12,11 +12,11 @@ export const api = createApi({
     },
   }),
   endpoints: (build) => ({
-    getMenu: build.query<IRes, void>({
+    getMenu: build.query<IItemsFromMenu, void>({
       query: () => '/menu',
       keepUnusedDataFor: 240,
       transformResponse: (response: IMenu[]) => {
-        const res: IRes = {ENTRY: [], MAIN_DISH: [], DESSERT: [], DRINK: []};
+        const res: IItemsFromMenu = {ENTRY: [], MAIN_DISH: [], DESSERT: [], DRINK: []};
         response.forEach((item) => {
           res[item.category].push(item)
         })

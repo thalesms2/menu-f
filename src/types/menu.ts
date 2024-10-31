@@ -21,10 +21,10 @@ export interface IMenuCardProps {
 }
 
 export interface IMenuListProps {
-  itens: IRes
+  itens: IItemsFromMenu
 }
 
-export interface IRes {
+export interface IItemsFromMenu {
   [index: string]: any
   ENTRY: Array<IMenu>;
   MAIN_DISH: Array<IMenu>;
